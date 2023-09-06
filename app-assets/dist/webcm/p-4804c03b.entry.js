@@ -1,0 +1,2 @@
+import{r as e,h as s}from"./p-72ce4e51.js";const i=":host{display:block}";const t=class{constructor(s){e(this,s);this.checkboxId=undefined;this.checkboxName=undefined;this.checked=undefined;this.checkboxStyle=undefined}render(){return s("input",{class:this.checkboxStyle,checked:this.checked,type:"checkbox",name:this.checkboxName,id:this.checkboxId,"aria-label":"checkbox"+this.checkboxId})}};t.style=i;export{t as ir_checkbox};
+//# sourceMappingURL=p-4804c03b.entry.js.map

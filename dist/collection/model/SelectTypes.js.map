@@ -1,0 +1,1 @@
+{"version":3,"file":"SelectTypes.js","sourceRoot":"","sources":["../../src/model/SelectTypes.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW;CAGhB;AACD,MAAM,aAAa;CAGlB","sourcesContent":["class SelectTypes {\r\n  optgrouplabel: string;\r\n  options: SelectOptions[];\r\n}\r\nclass SelectOptions {\r\n  title: string;\r\n  value: string;\r\n}\r\n"]}

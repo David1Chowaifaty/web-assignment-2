@@ -1,19 +1,18 @@
 import { EventEmitter } from '../../stencil-public-runtime';
+import { DataFormat, GroupedDataFormat } from 'select2';
 export declare class IrSelect {
-  data: string;
+  data: string | DataFormat[] | GroupedDataFormat[];
   selectedItem: string;
-  selectData: SelectTypes[];
+  selectStyle: string;
+  selectData: DataFormat[] | GroupedDataFormat[];
   onselectchange: EventEmitter<string>;
-  el: HTMLElement;
-  selectRef: HTMLSelectElement;
+  private selectId;
+  private testElement;
   componentWillLoad(): void;
   componentDidLoad(): void;
-  disconnectedCallback(): void;
   handleDataChange(newValue: string): void;
   private parseData;
-  private moveAttributesToSelectElement;
   private initializeSelect2;
-  private destroySelect2;
-  onSelectChange(e: Event): void;
+  private handleSelect;
   render(): any;
 }

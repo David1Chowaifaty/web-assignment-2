@@ -1,25 +1,28 @@
-import { proxyCustomElement, HTMLElement, createEvent, h, Host } from '@stencil/core/internal/client';
-
-const irSelectCss = ":host{display:block}";
+import { proxyCustomElement, HTMLElement, createEvent, h } from '@stencil/core/internal/client';
+import { v as v4 } from './v4.js';
 
 const IrSelect$1 = /*@__PURE__*/ proxyCustomElement(class IrSelect extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
     this.onselectchange = createEvent(this, "onselectchange", 7);
+    this.selectId = v4();
+    this.handleSelect = (event) => {
+      const selectedValue = event.params.data.id;
+      this.onselectchange.emit(selectedValue);
+      this.selectedItem = selectedValue;
+    };
     this.data = undefined;
     this.selectedItem = undefined;
+    this.selectStyle = undefined;
     this.selectData = [];
   }
   componentWillLoad() {
     this.parseData();
-    this.moveAttributesToSelectElement();
   }
   componentDidLoad() {
+    this.testElement = $(`#${this.selectId}`);
     this.initializeSelect2();
-  }
-  disconnectedCallback() {
-    this.destroySelect2();
   }
   handleDataChange(newValue) {
     if (newValue && newValue.trim() !== '') {
@@ -27,49 +30,38 @@ const IrSelect$1 = /*@__PURE__*/ proxyCustomElement(class IrSelect extends HTMLE
     }
   }
   parseData() {
-    try {
-      this.selectData = JSON.parse(this.data);
-    }
-    catch (error) {
-      console.error('Error parsing JSON data:', error);
-    }
-  }
-  moveAttributesToSelectElement() {
-    Array.from(this.el.attributes).forEach(attribute => {
-      var _a;
-      if (attribute.name !== 'data') {
-        (_a = this.selectRef) === null || _a === void 0 ? void 0 : _a.setAttribute(attribute.name, attribute.value);
-        this.el.removeAttribute(attribute.name);
+    if (typeof this.data === 'string') {
+      try {
+        this.selectData = JSON.parse(this.data);
       }
-    });
+      catch (error) {
+        console.error(`Error parsing JSON data: ${error}`);
+      }
+    }
+    else {
+      this.selectData = this.data;
+    }
   }
   initializeSelect2() {
-    $(this.selectRef).select2();
-    $(this.selectRef).on('change', e => {
-      const selectedValue = $(e.target).val().toString();
-      this.onselectchange.emit(selectedValue);
-      this.selectedItem = selectedValue;
+    if (!this.testElement || !this.testElement.length) {
+      console.warn('Element not found');
+      return;
+    }
+    this.testElement.select2({
+      data: this.selectData,
     });
-  }
-  destroySelect2() {
-    $(this.selectRef).select2('destroy');
-  }
-  onSelectChange(e) {
-    const selectedValue = e.target.value;
-    this.onselectchange.emit(selectedValue);
-    this.selectedItem = selectedValue;
+    this.testElement.on('select2:select', this.handleSelect);
   }
   render() {
-    return (h(Host, null, h("select", { ref: el => (this.selectRef = el), title: "select" }, this.selectData.map(d => (h("optgroup", { label: d.optgrouplabel }, d.options.map(option => (h("option", { value: option.value }, option.title)))))))));
+    return h("select", { id: this.selectId, title: "select", class: `select2 ${this.selectStyle}` });
   }
-  get el() { return this; }
   static get watchers() { return {
     "data": ["handleDataChange"]
   }; }
-  static get style() { return irSelectCss; }
 }, [0, "ir-select", {
     "data": [513],
     "selectedItem": [1537, "selected-item"],
+    "selectStyle": [513, "select-style"],
     "selectData": [32]
   }]);
 function defineCustomElement$1() {

@@ -1,70 +1,69 @@
 const checkbox = document.querySelector('ir-checkbox');
 const select = document.querySelector('ir-select')
 const data = [{
-    optgrouplabel: "Alaskan/Hawaiian Time Zone",
-    options: [{
-        title: "Alaska",
-        value: "AK",
+    text: "Alaskan/Hawaiian Time Zone",
+    children: [{
+        text: "Alaska",
+        id: "AK",
     }, {
-        title: "Hawaii",
-        value: "HI",
-    },
-    ],
-},
-
-{
-    optgrouplabel: "Pacific Time Zone",
-    options: [{
-        title: "California",
-        value: "CA",
-    }, {
-        title: "Nevada",
-        value: "NV",
-    },
-    {
-        title: "Oregon",
-        value: "OR",
-    },
-    {
-        title: "WA",
-        value: "Washington",
+        text: "Hawaii",
+        id: "HI",
     },
     ],
 },
 {
-    optgrouplabel: "Mountain Time Zone",
-    options: [{
-        title: "Arizona",
-        value: "AZ",
+    text: "Pacific Time Zone",
+    children: [{
+        text: "California",
+        id: "CA",
     }, {
-        title: "Colorado",
-        value: "CO",
+        text: "Nevada",
+        id: "NV",
     },
     {
-        title: "Idaho",
-        value: "ID",
+        text: "Oregon",
+        id: "OR",
     },
     {
-        title: "Montana",
-        value: "MT",
+        text: "WA",
+        id: "Washington",
     },
-    {
-        title: "Nebraska",
-        value: "NE",
-    },
-    {
-        title: "New Mexica",
-        value: "NM",
-    },
-    {
-        title: "North Dakota",
-        value: "ND",
+    ],
+},
+{
+    text: "Mountain Time Zone",
+    children: [{
+        text: "Arizona",
+        id: "AZ",
     }, {
-        title: "Utah",
-        value: "UT",
+        text: "Colorado",
+        id: "CO",
+    },
+    {
+        text: "Idaho",
+        id: "ID",
+    },
+    {
+        text: "Montana",
+        id: "MT",
+    },
+    {
+        text: "Nebraska",
+        id: "NE",
+    },
+    {
+        text: "New Mexica",
+        id: "NM",
+    },
+    {
+        text: "North Dakota",
+        id: "ND",
     }, {
-        title: "Wyaoming",
-        value: "WY",
+        text: "Utah",
+        id: "UT",
+    }, {
+        text: "Wyaoming",
+        id: "WY",
     },
     ],
 },

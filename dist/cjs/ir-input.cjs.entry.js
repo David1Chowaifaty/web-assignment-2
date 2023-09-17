@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-35d8bd83.js');
+const index = require('./index-e7480c96.js');
 
 const irInputCss = ":host{display:block}";
 

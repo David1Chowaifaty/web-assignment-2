@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h, H as Host } from './index-bdc48f77.js';
+import { r as registerInstance, c as createEvent, h, H as Host } from './index-d305657b.js';
 
 const irInputCss = ":host{display:block}";
 

@@ -25,8 +25,8 @@ const data = [{
         id: "OR",
     },
     {
-        text: "WA",
-        id: "Washington",
+        text: "Washington",
+        id: "WA",
     },
     ],
 },
@@ -73,5 +73,8 @@ select.data = JSON.stringify(data)
 //     $('.select2').select2();
 // });
 checkbox.addEventListener('oncheckchange', (e) => {
-    console.log(e.detail)
+    console.log("checkbox", e.detail)
+})
+select.addEventListener("onselectchange", (e) => {
+    console.log("select", e.detail)
 })

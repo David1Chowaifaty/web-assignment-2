@@ -1,0 +1,2 @@
+import{r as t,h as s}from"./p-d332c6c9.js";const i=class{constructor(s){t(this,s);this.type="button";this.btnTitle="";this.icon="";this.variant="primary";this.shadow=undefined;this.btnBlur=undefined}render(){return s("button",{type:this.type,class:`btn btn-${this.variant} ${this.shadow?"box-shadow-1":""}`},s("i",{class:this.icon}),this.btnTitle)}};export{i as ir_button};
+//# sourceMappingURL=p-8e16e896.entry.js.map

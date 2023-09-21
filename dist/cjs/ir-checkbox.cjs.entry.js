@@ -2,7 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-e7480c96.js');
+const index = require('./index-3eb84c61.js');
+require('./jquery-5282df1a.js');
 
 const irCheckboxCss = ":host{display:block}";
 

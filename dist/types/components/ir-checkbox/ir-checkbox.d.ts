@@ -9,7 +9,9 @@ export declare class IrCheckbox {
   checked: boolean;
   oncheckchange: EventEmitter<boolean>;
   labelShown: boolean;
+  checkboxRef: HTMLElement;
   componentWillLoad(): void;
+  componentDidLoad(): void;
   onLabelChange(): void;
   setLabelShown(): void;
   handleChange(event: Event): void;

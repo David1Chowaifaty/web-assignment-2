@@ -13,6 +13,15 @@ export class IrCheckbox {
   componentWillLoad() {
     this.setLabelShown();
   }
+  componentDidLoad() {
+    $(this.checkboxRef).iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+    });
+    $(this.checkboxRef).on('ifChanged', (event) => {
+      this.handleChange(event);
+    });
+  }
   onLabelChange() {
     this.setLabelShown();
   }
@@ -30,7 +39,7 @@ export class IrCheckbox {
     this.oncheckchange.emit(isChecked);
   }
   render() {
-    return (h(Host, null, h("input", { type: "checkbox", disabled: this.disabled, onChange: this.handleChange.bind(this), checked: this.checked, class: this.checkboxStyle, id: this.inputId }), this.labelShown && (h("label", { class: this.labelStyle, htmlFor: this.inputId }, this.label))));
+    return (h(Host, null, h("input", { ref: el => (this.checkboxRef = el), type: "checkbox", disabled: this.disabled, onChange: this.handleChange.bind(this), checked: this.checked, class: this.checkboxStyle, id: this.inputId }), this.labelShown && (h("label", { class: this.labelStyle, htmlFor: this.inputId }, this.label))));
   }
   static get is() { return "ir-checkbox"; }
   static get originalStyleUrls() {

@@ -1,4 +1,5 @@
-import { r as registerInstance, c as createEvent, h, H as Host } from './index-d305657b.js';
+import { r as registerInstance, c as createEvent, h, H as Host } from './index-443d43b8.js';
+import './jquery-17c57869.js';
 
 const irCheckboxCss = ":host{display:block}";
 

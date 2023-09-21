@@ -77,4 +77,6 @@ checkbox.addEventListener('oncheckchange', (e) => {
 })
 select.addEventListener("onselectchange", (e) => {
     console.log("select", e.detail)
+    console.log(select.selectedItem)
 })
+

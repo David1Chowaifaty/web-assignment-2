@@ -72,8 +72,8 @@ const IrSelect = class {
     this.selectId = v4();
     this.handleSelect = (event) => {
       const selectedValue = event.params.data.id;
-      this.onselectchange.emit(selectedValue);
       this.selectedItem = selectedValue;
+      this.onselectchange.emit(selectedValue);
     };
     this.data = undefined;
     this.selectedItem = undefined;

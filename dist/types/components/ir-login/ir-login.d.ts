@@ -2,6 +2,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
 import { ILogin } from '../../model/Login';
 import { IRegister } from '../../model/Register';
 export declare class IrLogin {
+  imagePath: string;
   username: string;
   password: string;
   isChecked: boolean;

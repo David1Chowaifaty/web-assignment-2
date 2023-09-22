@@ -1,6 +1,7 @@
 import { EventEmitter } from '../../stencil-public-runtime';
 import { IRegister } from '../../model/Register';
 export declare class IrRegister {
+  imagePath: string;
   username: string;
   password: string;
   email: string;

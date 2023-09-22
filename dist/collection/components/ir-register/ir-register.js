@@ -1,6 +1,7 @@
 import { h } from "@stencil/core";
 export class IrRegister {
   constructor() {
+    this.imagePath = undefined;
     this.username = undefined;
     this.password = undefined;
     this.email = undefined;
@@ -38,9 +39,30 @@ export class IrRegister {
     this.formRef.reset();
   }
   render() {
-    return (h("section", { class: "card" }, h("ir-card-header", { class: "card-header border-0", "image-source": "../../../app-assets/images/logo/logo-dark.png", "image-alt-text": "branding logo", "header-title": "Create Account" }), h("div", { class: "card-content" }, h("div", { class: "card-body" }, h("form", { ref: el => (this.formRef = el), class: "form-horizontal form-simple", novalidate: true, onSubmit: this.handleFormSubmit.bind(this) }, h("ir-input", { ref: el => (this.usernameRef = el), type: "text", icon: "la la-user", placeholder: "User Name", "container-style": "mb-1" }), h("ir-input", { ref: el => (this.emailRef = el), type: "text", icon: "la la-envelope", placeholder: "Your Email Address", required: true, "container-style": "mb-1" }), h("ir-input", { ref: el => (this.passwordRef = el), type: "password", icon: "la la-key", placeholder: "Enter Password", required: true }), h("ir-button", { class: "btn-block", type: "submit", icon: "ft-unlock", "button-style": "btn-block", "button-title": " Register", "color-variant": "info" }))), h("p", { class: "text-center" }, "Already have an account ? ", h("ir-link", { onClick: this.handleClick.bind(this), "link-title": "Log in", "link-destination": "#" })))));
+    return (h("section", { class: "card" }, h("ir-card-header", { class: "card-header border-0", "image-source": this.imagePath, "image-alt-text": "branding logo", "header-title": "Create Account" }), h("div", { class: "card-content" }, h("div", { class: "card-body" }, h("form", { ref: el => (this.formRef = el), class: "form-horizontal form-simple", novalidate: true, onSubmit: this.handleFormSubmit.bind(this) }, h("ir-input", { ref: el => (this.usernameRef = el), type: "text", icon: "la la-user", placeholder: "User Name", "container-style": "mb-1" }), h("ir-input", { ref: el => (this.emailRef = el), type: "text", icon: "la la-envelope", placeholder: "Your Email Address", required: true, "container-style": "mb-1" }), h("ir-input", { ref: el => (this.passwordRef = el), type: "password", icon: "la la-key", placeholder: "Enter Password", required: true }), h("ir-button", { class: "btn-block", type: "submit", icon: "ft-unlock", "button-style": "btn-block", "button-title": " Register", "color-variant": "info" }))), h("p", { class: "text-center" }, "Already have an account ? ", h("ir-link", { onClick: this.handleClick.bind(this), "link-title": "Log in", "link-destination": "#" })))));
   }
   static get is() { return "ir-register"; }
+  static get properties() {
+    return {
+      "imagePath": {
+        "type": "string",
+        "mutable": false,
+        "complexType": {
+          "original": "string",
+          "resolved": "string",
+          "references": {}
+        },
+        "required": false,
+        "optional": false,
+        "docs": {
+          "tags": [],
+          "text": ""
+        },
+        "attribute": "image-path",
+        "reflect": true
+      }
+    };
+  }
   static get states() {
     return {
       "username": {},
